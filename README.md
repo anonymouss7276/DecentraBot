@@ -19,10 +19,10 @@ This project is optimized for Google Colab, which provides free access to the ne
 
 The notebook requires access to one data file from Google Drive to initialize the process.
 - In your Google Drive, create a root folder named `DecentraBot_Project`.
-- **Upload the `decentraFAQ.csv` file** (provided in this repository) into the `DecentraBot_Project` folder.
+- **Upload the `DecentraFAQ.csv` file** (provided in this repository) into the `DecentraBot_Project` folder.
 
 Your Google Drive structure should now look like this:
-My Drive/ └── DecentraBot_Project/ └── decentraFAQ.csv
+My Drive/ └── DecentraBot_Project/ └── DecentraFAQ.csv
 
 The notebook will automatically create an `artifacts` subfolder within this directory to save all trained models and data samples during execution.
 
@@ -31,6 +31,13 @@ The notebook will automatically create an `artifacts` subfolder within this dire
 1.  **Upload the Notebook:** Open [Google Colab](https://colab.research.google.com/), and select **File → Upload notebook...**. Choose the `DecentraBot_Pipeline.ipynb` file from this repository.
 2.  **Select GPU Runtime:** In the notebook menu, navigate to **Runtime → Change runtime type**. From the "Hardware accelerator" dropdown, select **T4 GPU** (or a higher tier like A100 if available). This step is crucial for performance.
 3.  **Run All Cells:** In the menu, select **Runtime → Run all**. The notebook will execute from top to bottom. It will first install all necessary libraries, then mount your Google Drive, and proceed to train all components and run the final demonstration. The entire process should complete without requiring further user intervention.
+
+### 3. Dataset Usage (`DecentraFAQ.csv`)
+
+This reposiotry contains the full **DecentraFAQ** dataset used within the `DecentraBot_Pipeline.ipynb` notebook. It serves two primary purposes:
+
+* **Training the Query Classifier:** The queries and labels in this file are used to fine-tune the DistilBERT model for intent classification.
+* **Building the Multitask-TabLLM Instruction Set:** The queries are also formatted into instruction prompts to teach the Mistral-7B based TabLLM how to recognize user intent alongside its tabular prediction tasks.
 
 ## Local Setup Instructions (Alternative)
 
@@ -82,4 +89,5 @@ Running the notebook will generate all necessary artifacts in the `/artifacts` s
     -   PEFT Method: LoRA (`r=64`, `lora_alpha=16`)
     -   Max Steps: 100, Learning Rate: 2e-4
 -   **RAG:**
+
     -   Embedding Model: `all-MiniLM-L6-v2`
