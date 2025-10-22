@@ -19,7 +19,7 @@ This project is optimized for Google Colab, which provides free access to the ne
 
 The notebook requires access to one data file from Google Drive to initialize the process.
 - In your Google Drive, create a root folder named `DecentraBot_Project`.
-- **Upload the `decentraFAQ.csv` file** (provided in this repository) into the `DecentraBot_Project` folder.
+- **Upload the `DecentraFAQ.csv` file** (provided in this repository) into the `DecentraBot_Project` folder.
 
 Your Google Drive structure should now look like this:
 My Drive/ └── DecentraBot_Project/ └── decentraFAQ.csv
@@ -82,4 +82,5 @@ Running the notebook will generate all necessary artifacts in the `/artifacts` s
     -   PEFT Method: LoRA (`r=64`, `lora_alpha=16`)
     -   Max Steps: 100, Learning Rate: 2e-4
 -   **RAG:**
+
     -   Embedding Model: `all-MiniLM-L6-v2`
